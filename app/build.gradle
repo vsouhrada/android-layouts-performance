@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-//apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'kotlin-kapt'
-//apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.frogermcs.androiddevmetrics'
 
 android {
     compileSdkVersion 25

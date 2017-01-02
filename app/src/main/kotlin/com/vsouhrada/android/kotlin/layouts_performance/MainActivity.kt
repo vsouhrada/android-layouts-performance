@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -18,8 +19,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
   lateinit var drawer: DrawerLayout
 
-  override fun onCreate(savedInstanceState: Bundle?) {
+  var now: Long = 0
+
+  open override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+    now = System.currentTimeMillis()
 
     setContentView(R.layout.activity_main)
 
@@ -44,7 +49,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     navigationView.setNavigationItemSelectedListener(this)
   }
 
-  override fun onBackPressed() {
+  override fun onStart() {
+    val time = System.currentTimeMillis() - now
+    Log.w("LAYOUT_TIME", "Time[$time ms]")
+    super.onStart()
+  }
+
+  open override fun onBackPressed() {
     if (drawer.isDrawerOpen(GravityCompat.START)) {
       drawer.closeDrawer(GravityCompat.START)
     } else {
