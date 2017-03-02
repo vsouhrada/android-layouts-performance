@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
   override fun onStart() {
     val time = System.currentTimeMillis() - now
-    Log.w("LAYOUT_TIME", "Time[$time ms]")
+    Log.w("A_MAIN_LAYOUT_TIME", "Time[$time ms]")
     super.onStart()
   }
 
